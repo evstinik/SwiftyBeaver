@@ -119,6 +119,10 @@ public class FileDestination: BaseDestination {
             return false
         }
     }
+    
+    override func flush() {
+        fileHandle?.synchronizeFile()
+    }
 
     /// deletes log file.
     /// returns true if file was removed or does not exist, false otherwise
